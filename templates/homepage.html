@@ -1,0 +1,52 @@
+<!–– Created by rajesh.sahoo at 2019-07-03 11:52 ––>
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Database Utility{% endblock title %}
+
+
+{% block body %}
+    <section class="standalone-module">
+        <div class="module-content">
+            <div class="promo-background">
+                <div class="env-selection">
+                    <h1>Export Table Data</h1>
+                    <form id="viewer" name="viewer" method="post">
+                        {% csrf_token %}
+                        <div class="mg-left-2">
+                            <label for="tableName">Select a table: </label>
+                            <select class="custom-select d-block w-100" id="tableName" name="tableName" required>
+                                <option value="" >Choose...</option>
+                                {% for table in tableNames %}
+                                    <option value="{{table}}">{{table}}</option>
+                                {% endfor %}
+                            </select>
+                            <button class="blu-button" type="submit" formaction="{% url 'getTableData' %}">Download as CSV</button>
+                            <button class="blu-button" type="submit" formaction="{% url 'getTableTemplate' %}">Download Template</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="env-selection">
+                    <h1>Import Table Data</h1>
+                    <form method="post" enctype="multipart/form-data" action="{% url 'ImportTableData' %}">
+                        {% csrf_token %}
+                        <input type="file" name="myfile" required>
+                        <label for="tableName">Select a table: </label>
+                        <select class="custom-select d-block w-100" name="tableName" required>
+                            <option value="" >Choose...</option>
+                            {% for table in tableNames %}
+                                <option value="{{table}}">{{table}}</option>
+                            {% endfor %}
+                        </select>
+                        <label for="truncate"> Truncate and Import: </label>
+                        <input id="truncate" type="checkbox" name="truncate">
+                        <button type="submit">Upload</button>
+                    </form>
+                    <br><hr>
+                    <h3>{{message}}</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

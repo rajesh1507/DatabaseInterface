@@ -1,0 +1,126 @@
+.env-selection{
+    padding: 1rem;
+    margin-bottom: 2rem;
+    background-color: #e9ecef;
+    border-radius: .3rem;
+    margin-top: 2%;
+}
+
+.flexdiv{
+    display: flex;
+    flex-flow: row wrap;
+    align-content: space-between;
+    justify-content: space-around;
+}
+.width30{
+    width: 300px;
+    height:220px;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.row{
+    display:flex;
+    flex-wrap:wrap;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1%;
+}
+
+.heading{
+    font-size: 1.17em;
+    font-weight: bold;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.mg-left-2{
+    margin-left: 2rem;
+
+}
+
+.dropdown-btn{
+    margin-top:auto;
+    margin-bottom:auto;
+    margin-left:1rem;
+}
+
+
+
+.compare-table{
+    table-layout: fixed;
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    border-color: black;
+    max-height:80px;
+    overflow: auto;
+    white-space: nowrap;
+    border-radius:5px;
+    background-color: white;
+}
+
+.ilb-val-table{
+    width: 100%;
+    border-spacing: 0px;
+    background-color: white;
+}
+
+.ilb-val-table th {
+    background-color: #000000b8;
+    color: white;
+    height: 1.5rem;
+}
+
+.ilb-val-table td, .ilb-val-table th{
+    overflow: auto;
+    white-space: nowrap;
+    border: 1px solid black;
+}
+
+.compare-table{
+    table-layout: fixed;
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    border-color: black;
+    max-height:80px;
+    overflow: auto;
+    white-space: nowrap;
+    border-radius:5px;
+    background-color: white;
+}
+
+
+
+.compare-table td{
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding-left: 4px;
+    padding-right: 4px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+.compare-table th{
+    white-space: nowrap;
+    background: #283c51;
+    color: white;
+    height: 1.5rem;
+    border-right: 1px solid;
+}
+
+
+
+.add-prop-table-fix-width{
+    max-height:400px;
+    overflow:auto;bottom: 10px;
+}
+
+.div-td-cell-50{
+    max-height: 150px;
+    white-space: normal;
+    width: 100%;
+    word-wrap: break-word;
+    overflow: auto;
+}

@@ -1,0 +1,93 @@
+.nav{
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 9999;
+    display: block;
+    margin: 0;
+    width: 100%;
+    min-width: 1024px;
+    height: 48px;
+    max-height: 44px;
+    background: rgba(0,0,0,0.8);
+    font-size: 17px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.nav-container{
+    margin: 0 auto;
+    max-width: 70%;
+    padding: 0 22px;
+    position: relative;
+    z-index: 2;
+    padding-left: calc(22px + constant(safe-area-inset-left));
+    padding-right: calc(22px + constant(safe-area-inset-right));
+}
+
+.nav-list{
+	cursor: default;
+	margin: 0 -10px;
+	width: auto;
+	height: 44px;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: justify;
+	-ms-flex-pack: justify;
+	justify-content: space-between;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none
+}
+
+.ac-gn-item {
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	display: inline-block;
+	position: relative;
+	height: 44px;
+	z-index: 1;
+	vertical-align: top
+}
+
+.ac-gn-apple {
+	left: 0;
+	position: absolute;
+	width: 48px;
+	top: 0;
+	margin-left: -10%;
+	text-align: center;
+	z-index: 1
+}
+
+.ac-gn-link {
+	font-size: 14px;
+	line-height: 3.14286;
+	font-weight: 400;
+	letter-spacing: -.01em;
+	font-family: "SF Pro Text", "Myriad Set Pro", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+	color: #f5f5f7;
+	position: relative;
+	z-index: 1;
+	display: inline-block;
+	padding: 0 10px;
+	height: 44px;
+	opacity: .8;
+	background: no-repeat;
+	text-decoration: none;
+	white-space: nowrap;
+	-webkit-transition: opacity 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+	transition: opacity 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+	-webkit-tap-highlight-color: transparent;
+	outline-offset: -7px
+}
+
+.ac-gn-link-apple {
+    margin-right: 10px;
+    width: 100px;
+}

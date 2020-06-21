@@ -1,0 +1,39 @@
+.standalone-module {
+
+}
+
+.module-content {
+    width: 100%;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.promo-background {
+    padding: 1.4em 0;
+}
+
+.home{
+    margin-top: 10%;
+}
+
+.standalone-module .module-content {
+    padding-top: var(--global-nav-collective-height);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    text-align: center;
+}
+
+.headline {
+    padding-top: 70px;
+    font-size: 19px;
+    line-height: 1.21053;
+    font-weight: 600;
+    letter-spacing: .012em;
+    font-family: "SF Pro Display", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    margin-bottom: 0.2em;
+}
+
+.blu-button{
+    background-color: #0f6dff;
+    color: white;
+}
