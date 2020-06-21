@@ -33,10 +33,11 @@ def insert_data_into_table(table_name, column_names, values):
                   VALUES({}) '''.format(table_name, ','.join(column_names), ','.join(['?'] * len(column_names)))
     cur = conn.cursor()
     affected_rows = 0
-
-    for val in values:
-        cur.execute(sql, val)
-        affected_rows += cur.rowcount
+    cur.executemany(sql,values)
+    affected_rows = cur.rowcount
+    # for val in values:
+    #     cur.execute(sql, val)
+    #     affected_rows += cur.rowcount
 
     conn.commit()
     conn.close()
@@ -51,3 +52,9 @@ def TruncateTableData(table_name):
     conn.commit()
     conn.close()
     return True
+
+def ColumnValidationFailed(column_list, table_name):
+    rows = select_all_tasks("SELECT * FROM {}".format(table_name))
+    for column in column_list:
+        if column not in rows[0]:
+            return True

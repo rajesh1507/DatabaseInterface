@@ -6,7 +6,7 @@ from django.db import connection
 from django.apps import apps
 from django.http import HttpResponse
 from django.conf import settings
-from .databaseInterpreter import select_all_tasks, insert_data_into_table, TruncateTableData
+from .databaseInterpreter import *
 
 import pandas as pd
 
@@ -65,30 +65,38 @@ class ImportExcelData(View):
     def post(self, request):
         table_name = request.POST.get('tableName')
         truncate = request.POST.get('truncate')
-
+        tables = connection.introspection.table_names()
         global temp_msg
         temp_msg = ''
-        if truncate == 'on':
-            state = TruncateTableData(table_name)
-            if state: temp_msg = 'Table truncate done. '
-            else: 'Table truncate Failed'
         excel_file = request.FILES['myfile']
         data = pd.read_csv(excel_file)
-        values = []
-        for row in data.values:
-            values.append(tuple(row))
+        if ColumnValidationFailed(
+                table_name=table_name,
+                column_list=tuple(data)
+        ):
+            message = "ERROR: Columns Mismatch found."
+        else:
+            if truncate == 'on':
+                state = TruncateTableData(table_name)
+                if state:
+                    temp_msg = 'Table truncate done. '
+                else:
+                    'Table truncate Failed'
+            values = []
+            for row in data.values:
+                values.append(tuple(row))
 
-        try:
-            rows_affected = insert_data_into_table(
-                table_name= table_name,
-                column_names=tuple(data),
-                values=values
-            )
-            message = temp_msg+"{} rows has been affected on {} table.".format(rows_affected,table_name)
-        except Exception as e:
-            message = temp_msg+"ERROR: {}".format(e)
+            try:
+                rows_affected = insert_data_into_table(
+                    table_name= table_name,
+                    column_names=tuple(data),
+                    values=values
+                )
+                message = temp_msg+"{} rows has been affected on {} table.".format(rows_affected,table_name)
+            except Exception as e:
+                message = temp_msg+"ERROR: {}".format(e)
 
-        tables = connection.introspection.table_names()
+
         return render(
             request=request,
             template_name="homepage.html",
