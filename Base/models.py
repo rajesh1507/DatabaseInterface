@@ -1,15 +1,28 @@
 from django.db import models
-from django.core.validators import MaxValueValidator
+
 
 # Create your models here.
 
-class Participant(models.Model):
-    created = models.DateTimeField(auto_now_add=True, blank=True)
-    name = models.CharField(max_length=100, blank=False)
-    contact = models.PositiveIntegerField(primary_key=True,validators=[MaxValueValidator(9999999999)],blank=False)
+class Siteinventory(models.Model):
+    store = models.IntegerField(blank=False)
+    model = models.CharField(max_length=100, blank=True, null=True)
+    client = models.CharField(max_length=100, blank=True, null=True)
+    scantype1 = models.CharField(max_length=100, blank=True, null=True)
+    scannum1 = models.CharField(max_length=100, blank=True, null=True)
+    scantype2 = models.CharField(max_length=100, blank=True, null=True)
+    scannum2 = models.CharField(max_length=100, blank=True, null=True)
+    scantype3 = models.CharField(max_length=100, blank=True, null=True)
+    scannum3 = models.CharField(max_length=100, blank=True, null=True)
+    scantype4 = models.CharField(max_length=100, blank=True, null=True)
+    scannum4 = models.CharField(max_length=100, blank=True, null=True)
+    sitetype = models.CharField(max_length=100, choices=(("Red", "Red"), ("Blue", "Blue")), blank=False)
+    podnumber = models.IntegerField(blank=False)
+    salesorder = models.CharField(max_length=100, blank=True, null=True)
 
-    class Meta():
-        ordering = ['created']
+    # client = models.PositiveIntegerField(primary_key=True,validators=[MaxValueValidator(9999999999)],blank=False)
+
+    class Meta:
+        ordering = ['store']
 
     def __str__(self):
-        return self.name
+        return "{} : {}".format(self.store, self.model)

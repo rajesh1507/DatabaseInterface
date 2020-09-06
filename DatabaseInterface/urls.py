@@ -16,11 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 
-admin.site.site_title = "Administration"
-admin.site.site_header = "DB Utility Administration"
+admin.site.site_title = "CMDB PORTAL"
+admin.site.site_header = "CMDB PORTAL"
+admin.site.index_title = ""
+admin.site.site_url = None
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('', admin.site.urls),
     path('', include('Base.urls')),
-    path('users/', include('django.contrib.auth.urls')),
+    path('', include('django.contrib.auth.urls')),
 ]
