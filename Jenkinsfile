@@ -32,5 +32,12 @@ pipeline {
         }    
       }
     }
+    stage ('Deployment') {
+      agent { label 'node-with-docker' }
+      steps {
+        sh 'docker build -t database_interface .'
+        sh 'docker run -d -p 7000:7000  -it database_interface'
+      }
+    }
   }
 }
