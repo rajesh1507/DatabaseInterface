@@ -23,6 +23,6 @@ admin.site.site_url = None
 
 urlpatterns = [
     path('', admin.site.urls),
-    path('', include('Base.urls')),
+    path('import/', include('Base.urls')),
     path('', include('django.contrib.auth.urls')),
 ]
