@@ -22,7 +22,7 @@ pipeline {
       steps {
         sh 'whoami'
         sh 'rm trufflehog || true'
-        sh 'docker run gesellix/trufflehog --json \${GIT_URL} > trufflehog'
+        sh 'docker run --rm gesellix/trufflehog --json \${GIT_URL} > trufflehog'
         sh 'cat trufflehog'
         script {
             if (runShell('grep \'reason\' trufflehog')) {
@@ -36,7 +36,7 @@ pipeline {
       agent { label 'node-with-docker' }
       steps {
         sh 'docker build -t database_interface .'
-        sh 'docker run -d -p 7000:7000  -it database_interface'
+        sh 'docker run -d -p 8000:8000  -it database_interface'
       }
     }
   }
