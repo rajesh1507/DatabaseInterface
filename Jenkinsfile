@@ -36,7 +36,9 @@ pipeline {
       agent { label 'node-with-docker' }
       steps {
         sh 'docker build -t database_interface .'
-        sh 'docker run -d -p 8000:8000  -it database_interface'
+        sh 'docker stop dbinterface'
+        sh 'docker rm dbinterface'
+        sh 'docker run -d --name dbinterface -p 8000:8000  -it database_interface'
       }
     }
   }
