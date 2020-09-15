@@ -16,8 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 
-admin.site.site_title = "PORTAL"
-admin.site.site_header = "CMDB PORTAL"
+admin.site.site_title = "CMDB PORTAL"
+admin.site.site_header = "CMDB-PORTAL"
 admin.site.index_title = ""
 admin.site.site_url = None
 
