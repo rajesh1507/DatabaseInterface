@@ -1,4 +1,4 @@
-Django==2.1.15
+Django==2.2.24
 gunicorn
 et-xmlfile==1.0.1
 jdcal==1.4.1
