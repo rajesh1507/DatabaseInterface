@@ -3,7 +3,7 @@ gunicorn
 et-xmlfile==1.0.1
 jdcal==1.4.1
 lml==0.0.9
-numpy==1.19.0
+numpy==1.22.0
 openpyxl==3.0.3
 pandas==1.0.5
 pyexcel-io==0.5.20
